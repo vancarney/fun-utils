@@ -2,7 +2,8 @@
   "author": "Van Carney",
   "name": "fun-utils",
   "description": "Small Collection of Function Utilities",
-  "version": "0.0.1",
+  "keywords":["function", "utilities", "factory", "construct", "name", "constructor", "utility"],
+  "version": "0.0.2",
   "preferGlobal": false,
   "main":"./index,js",
   "licenses": [
