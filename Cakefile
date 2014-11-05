@@ -21,7 +21,7 @@ catch err
 # paths object for module invocation reference
 paths={
   "coffee": [
-    "lib",
+    "dist",
     "src"
   ],
   "uglify": [
@@ -49,7 +49,7 @@ build = ()->
   #launch 'coffee', (['-j','lib/sparse.js', '-c', 'src/sparse.coffee', 'src/classes/*']), coffeeCallback
 
   # console.log "coffee --join lib/api.js --compile #{apiFiles.files.join(' ').replace(/('|\")/g, '')}"
-  exec "coffee -b -c -o lib src", coffeeCallback
+  exec "coffee -b -c -o dist src", coffeeCallback
 # ## *watch*
 # watch project src folders and build on change
 task 'watch', 'watch project src folders and build on change', ()-> watch -> log ':)', green

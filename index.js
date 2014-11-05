@@ -1,1 +1,1 @@
-module.exports = require('./lib/fun-utils').Fun;
+module.exports = require('./dist/fun-utils').Fun;
