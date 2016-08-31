@@ -8,7 +8,8 @@ Fun.getFunctionName = (fun)->
 #### getConstructorName(fun)
 # Attempts to safely determine name of the Class Constructor returns null if undefined
 Fun.getConstructorName = (fun)->
-  fun.constructor.name || if (name = @getFunctionName fun.constructor)? then name else null
+  fun = (fun() ? new fun) if fun.constructor.name is 'Function'
+  if (name = @getFunctionName fun.constructor)? then name else null
 #### construct(constructor, args)
 # invokes a Constructor with optional arguments array
 Fun.construct = (constructor, args)->

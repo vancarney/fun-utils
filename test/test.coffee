@@ -5,7 +5,7 @@ class Funct
 describe 'Fun-Utils Tests', ->
   @fun = (foo,bar)-> console.log "#{foo} #{bar}"
   it 'should stringify a function', =>
-    (@str = Fun.toString( @fun )).replace(/[\n\t]*/g, '').replace(/[\s]{2,}/g,' ').should.equal 'function (foo, bar) { return console.log("" + foo + " " + bar); }'
+    (@str = Fun.toString( @fun )).replace(/[\n\t]*/g, '').replace(/[\s]{2,}/g,' ').should.equal 'function (foo, bar) { return console.log(foo + " " + bar); }'
   it 'should revive a function from a string', =>
     Fun.fromString(@str).should.be.a 'function'
   it 'should encode a Native Object', =>
@@ -14,6 +14,8 @@ describe 'Fun-Utils Tests', ->
     Fun.fromString('Native::Date').should.equal Date
   it 'should get the constructor name',=>
     Fun.getConstructorName(new Funct).should.equal 'Funct'
+    Fun.getConstructorName(Funct).should.equal 'Funct'
+    Fun.getConstructorName(Number).should.equal 'Number'
   it 'should get a function name',=>
     f = `function testing() {}`
     Fun.getFunctionName(f).should.equal 'testing'
